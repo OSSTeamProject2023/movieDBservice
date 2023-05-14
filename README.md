@@ -20,7 +20,7 @@
 ## [필요기능]_함수구현
 
 | 기능종류 | 작업 완료 여부 | 구현해야할 내용 | 함수구현담당 |
-| ------ | -- |----------- |
+| ------ | -- |----------- | -- |
 | 메뉴 | ✅ | 메뉴보여주는함수 | 황수현 |
 | 1. 추가 | ✅ | 데이터 추가 (name, movie_name, seat, movie_price, date, movie_room) | 최동빈 |
 | 2. 삭제 | ✅ | 데이터 삭제 (name, movie_name, seat, movie_price, date, movie_room) | 황수현 |
