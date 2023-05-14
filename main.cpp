@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <fstream>
 
 using namespace std;
 
@@ -22,6 +23,7 @@ public:
     void search_by_name(DB_list *list, int index);
     void search_by_moviename(DB_list *list, int index);
     void leftSeats(DB_list *list, int index);
+    void saveData(DB_list *list, int index);
 };
 
 
@@ -38,7 +40,7 @@ void DB_list::addInfo(DB_list* list, int index){
     cin >> list[index].date;
     cout << "영화관: ";
     cin >> list[index].room;
-    cout << "저장됨!";
+    cout << "저장됨!" << endl;
     list[index].id = index + 1;
 }
  
@@ -78,7 +80,7 @@ void DB_list::updateInfo(DB_list *list, int index){
     cin >> list[number-1].date;
     cout << "영화관: ";
     cin >> list[number-1].room;
-    cout << "수정됨!";
+    cout << "수정됨!" << endl;
 }
 
 void DB_list::deleteInfo(DB_list *list, int index){
@@ -188,8 +190,18 @@ void DB_list::leftSeats(DB_list *list, int index){
     cout << "7관: " << room7 << "/100" << endl;
 }
 
-void saveData(){
+void DB_list::saveData(DB_list *list, int index){
+    ofstream fout;
+    fout.open("list.txt");
 
+    for(int i = 0; i < index; i++){
+        if(list[i].price == -1) continue;
+        fout << list[i].name << " " << list[i].movie_name << " " <<  list[i].seat << " " << list[i].price << " " << list[i].date << " " << list[i].room << " " << list[i].id << endl;
+    }
+
+    fout << endl;
+    fout.close();
+    cout << "\n FILE 저장됨!" << endl;
 }
 
 void loadData(){
@@ -238,7 +250,7 @@ int main(){
                 list->updateInfo(list, index);
                 break;
             case 5:
-                saveData();
+                list->saveData(list, index);
                 break;
             case 6:
                 list->search_by_name(list, index);
@@ -251,5 +263,5 @@ int main(){
                 break;
         }  
     }
-    cout << "bye!" << endl;
+    cout << "서비스가 종료되었습니다!" << endl;
 }
