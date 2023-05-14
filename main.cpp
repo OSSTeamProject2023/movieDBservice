@@ -11,11 +11,12 @@ class DB_list {
     int price;
     string date;
     int room;
+    int id;
 public:
     void addInfo(DB_list *list, int index);
-    void deleteInfo();
+    void deleteInfo(DB_list *list, int index);
     void readInfo(DB_list *list, int index);
-    void updateInfo();
+    void updateInfo(DB_list *list, int index);
     void search_by_name();
     void search_by_moviename();
     void leftSeats();
@@ -23,36 +24,76 @@ public:
 
 
 void DB_list::addInfo(DB_list* list, int index){
-    cout << "ì˜ˆì•½ìž ì´ë¦„: ";
+    cout << "¿¹¾àÀÚ ÀÌ¸§: ";
     cin >> list[index].name;
-    cout << "ì˜í™” ì´ë¦„: ";
+    cout << "¿µÈ­ ÀÌ¸§: ";
     cin >> list[index].movie_name;
-    cout << "í‹°ì¼“ ì¢Œì„: ";
+    cout << "Æ¼ÄÏ ÁÂ¼®: ";
     cin >> list[index].seat;
-    cout << "ì˜í™” ê°€ê²©: ";
+    cout << "¿µÈ­ °¡°Ý: ";
     cin >> list[index].price;
-    cout << "ìƒì˜ ë‚ ì§œ: ";
+    cout << "»ó¿µ ³¯Â¥: ";
     cin >> list[index].date;
-    cout << "ì˜í™”ê´€: ";
+    cout << "¿µÈ­°ü: ";
     cin >> list[index].room;
-    cout << "ì €ìž¥ë¨!";
-}
-
-void DB_list::deleteInfo(){
-
+    cout << "ÀúÀåµÊ!";
+    list[index].id = index + 1;
 }
  
 void DB_list::readInfo(DB_list *list, int index){
-    for(int i = 0; i < index; i++) {
-        cout << "name: " << list[i].name << "\tmovie name: " << list[i].movie_name << "\tseat: " << list[i].seat << "\tprice: " << list[i].price << "\tdate: " << list[i].date << "\tmovie room: " << list[i].room << endl;
-    }
 
-    // cout << "name: " << list[0].name << endl;
-    // cout << "price: " << list[1].price << endl;
+    for(int i = 0; i < index; i++) {
+        if(list[index].price == -1) continue;
+        else{
+        cout << "\n¿¹¸Å¹øÈ£: " << list[i].id << "¹ø" << endl;
+        cout << "********************************************************" << endl;
+        cout << "*                                                          *" << endl;
+        cout << "*          ¿µÈ­ Á¦¸ñ: " << list[i].movie_name << "         \t*" << endl;
+        cout << "*      »ó¿µÀÏ½Ã: " << list[i].seat << "           ¿¹¸ÅÀÚ: " << list[i].name << "      *" << endl;  
+        cout << "*      ÁÂ¼®: " << list[i].room << "°ü "<< list[i].seat << "           °¡°Ý: " << list[i].price << "  \t*" << endl;
+        cout << "*                                                     *" << endl;
+        cout << "*******************************************************" << endl;
+        }
+    }
 }
 
-void DB_list::updateInfo(){
+void DB_list::updateInfo(DB_list *list, int index){
+    int number;
 
+    readInfo(list, index);
+
+    cout << "¼öÁ¤ÇÒ ¿¹¾à¹øÈ£´Â?: ";
+    cin >> number;
+    cout << "¿¹¾àÀÚ ÀÌ¸§: ";
+    cin >> list[number-1].name;
+    cout << "¿µÈ­ ÀÌ¸§: ";
+    cin >> list[number-1].movie_name;
+    cout << "Æ¼ÄÏ ÁÂ¼®: ";
+    cin >> list[number-1].seat;
+    cout << "¿µÈ­ °¡°Ý: ";
+    cin >> list[number-1].price;
+    cout << "»ó¿µ ³¯Â¥: ";
+    cin >> list[number-1].date;
+    cout << "¿µÈ­°ü: ";
+    cin >> list[number-1].room;
+    cout << "¼öÁ¤µÊ!";
+}
+
+void DB_list::deleteInfo(DB_list *list, int index){
+    int number, confirm;
+
+    readInfo(list, index);
+
+    cout << "¹øÈ£´Â? (Ãë¼Ò: 0) " << endl;
+    cin >> number;
+    if(number == 0) return;
+
+    cout << "Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î? (»èÁ¦: 1) " << endl;
+    cin >> confirm;
+    if(confirm == 1){
+        list[number-1].price = -1;
+        cout << "»èÁ¦µÊ!!" << endl;
+    }
 }
 
 void DB_list::search_by_name(){
@@ -97,9 +138,9 @@ int main(){
     DB_list list[100];
 
     int index = 0;
-    int num = 1;    //ì´ˆê¸°ê°’(0ë§Œ ì•„ë‹ˆë©´ ë¨)
-    while(num != 0) {      //ìž…ë ¥ë°›ì€ ê°’ì´ Qì¼ë•Œê¹Œì§€ ë°˜ë³µ
-        num = show_menu();                   //ë©”ë‰´íŒì„ ì‹¤í–‰ì‹œí‚¤ê³  ìž…ë ¥ë°›ì€ ê°’ì„ strì— ë°›ì•„ì˜´
+    int num = 1;    //ÃÊ±â°ª(0¸¸ ¾Æ´Ï¸é µÊ)
+    while(num != 0) {      //ÀÔ·Â¹ÞÀº °ªÀÌ QÀÏ¶§±îÁö ¹Ýº¹
+        num = show_menu();                   //¸Þ´ºÆÇÀ» ½ÇÇà½ÃÅ°°í ÀÔ·Â¹ÞÀº °ªÀ» str¿¡ ¹Þ¾Æ¿È
         
         switch(num) {
             case 1:
@@ -107,13 +148,13 @@ int main(){
                 index++;
                 break;
             case 2:
-                list->deleteInfo();
+                list->deleteInfo(list, index);
                 break;
             case 3:
                 list->readInfo(list, index);
                 break;
             case 4:
-                list->updateInfo();
+                list->updateInfo(list, index);
                 break;
             case 5:
                 saveData();
