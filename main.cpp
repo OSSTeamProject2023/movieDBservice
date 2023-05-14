@@ -24,10 +24,13 @@ public:
     void search_by_moviename(DB_list *list, int index);
     void leftSeats(DB_list *list, int index);
     void saveData(DB_list *list, int index);
+    int loadData(DB_list *list);
 };
 
 
 void DB_list::addInfo(DB_list* list, int index){
+    int room;
+    
     cout << "예약자 이름: ";
     cin >> list[index].name;
     cout << "영화 이름: ";
@@ -39,7 +42,14 @@ void DB_list::addInfo(DB_list* list, int index){
     cout << "상영 날짜: ";
     cin >> list[index].date;
     cout << "영화관: ";
-    cin >> list[index].room;
+    cin >> room;
+    while((room == 0) || (room > 7)){
+        cout << "올바르지 않은 상영관 정보입니다!" << endl;
+        cout << "영화관: ";
+        cin >> room;
+    }
+    list[index].room = room;
+
     cout << "저장됨!" << endl;
     list[index].id = index + 1;
 }
@@ -204,7 +214,39 @@ void DB_list::saveData(DB_list *list, int index){
     cout << "\n FILE 저장됨!" << endl;
 }
 
-void loadData(){
+int DB_list::loadData(DB_list *list){
+    ifstream fin("list.txt");
+
+    string name;
+    string movie_name;
+    string seat;
+    int price;
+    string date;
+    int room;
+    int id;
+
+    int i = 0;
+
+    while(fin >> name >> movie_name >> seat >> price >> date >> room >> id){
+        list[i].name = name;
+        list[i].movie_name = movie_name;
+        list[i].seat = seat;
+        list[i].price = price;
+        list[i].date = date;
+        list[i].room = room;
+        list[i].id = id;
+        i++;
+    }
+
+    fin.close();
+    cout<< "\n==> FILE 로딩 성공!" << endl;
+    
+    if(i == 0){
+        cout << "\n ==> FILE 없음!" << endl;
+        return 0;
+    }
+
+    return i;
 
 }
 
@@ -230,7 +272,7 @@ int show_menu(){
 int main(){
     DB_list list[100];
 
-    int index = 0;
+    int index = list -> loadData(list);
     int num = 1;    //초기값(0만 아니면 됨)
     while(num != 0) {      //입력받은 값이 Q일때까지 반복
         num = show_menu();                   //메뉴판을 실행시키고 입력받은 값을 str에 받아옴
