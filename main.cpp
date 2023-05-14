@@ -92,7 +92,7 @@ void DB_list::deleteInfo(DB_list *list, int index){
 
     cout << "정말로 삭제하시겠습니까? (삭제: 1) " << endl;
     cin >> confirm;
-    
+
     if(confirm == 1){
         list[number-1].price = -1;
         cout << "삭제됨!!" << endl;
@@ -116,7 +116,14 @@ void DB_list::search_by_name(DB_list *list, int index){
         list[i].name.copy(data_name, list[i].name.length() + 1);
      
         if(strstr(data_name, char_name)) {
-            readInfo(list, index);
+            cout << "\n예매번호: " << list[i].id << "번" << endl;
+            cout << "********************************************************" << endl;
+            cout << "*                                                          *" << endl;
+            cout << "*          영화 제목: " << list[i].movie_name << "         \t*" << endl;
+            cout << "*      상영일시: " << list[i].seat << "           예매자: " << list[i].name << "      *" << endl;  
+            cout << "*      좌석: " << list[i].room << "관 "<< list[i].seat << "           가격: " << list[i].price << "  \t*" << endl;
+            cout << "*                                                     *" << endl;
+            cout << "*******************************************************" << endl;
             scnt++;
         }
     }
@@ -143,7 +150,14 @@ void DB_list::search_by_moviename(DB_list *list, int index){
         list[i].name.copy(data_movie_name, list[i].name.length() + 1);
 
         if(strstr(data_movie_name, char_movie_name)) {
-            readInfo(list, index);
+            cout << "\n예매번호: " << list[i].id << "번" << endl;
+            cout << "********************************************************" << endl;
+            cout << "*                                                          *" << endl;
+            cout << "*          영화 제목: " << list[i].movie_name << "         \t*" << endl;
+            cout << "*      상영일시: " << list[i].seat << "           예매자: " << list[i].name << "      *" << endl;  
+            cout << "*      좌석: " << list[i].room << "관 "<< list[i].seat << "           가격: " << list[i].price << "  \t*" << endl;
+            cout << "*                                                     *" << endl;
+            cout << "*******************************************************" << endl;
             scnt++;
         }
     }
