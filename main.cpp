@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <cstring>
+
 using namespace std;
 
 
@@ -17,8 +19,8 @@ public:
     void deleteInfo(DB_list *list, int index);
     void readInfo(DB_list *list, int index);
     void updateInfo(DB_list *list, int index);
-    void search_by_name();
-    void search_by_moviename();
+    void search_by_name(DB_list *list, int index);
+    void search_by_moviename(DB_list *list, int index);
     void leftSeats();
 };
 
@@ -96,12 +98,57 @@ void DB_list::deleteInfo(DB_list *list, int index){
     }
 }
 
-void DB_list::search_by_name(){
+void DB_list::search_by_name(DB_list *list, int index){
+    string name;
+    int scnt = 0;
+
+    cout << "검색할 예약자 이름은?: ";
+    cin >> name;
+
+    char char_name[name.length() + 1];
+    name.copy(char_name, name.length() + 1);
+
+    for(int i=0; i<index; i++) {
+        if(list[i].price == -1) continue;
+
+        char data_name[list[i].name.length() + 1];
+        list[i].name.copy(data_name, list[i].name.length() + 1);
+     
+        if(strstr(data_name, char_name)) {
+            readInfo(list, index);
+            scnt++;
+        }
+    }
+
+    if(scnt==0) cout << "\n=> 검색된 데이터 없음!" << endl;
+    else cout << "\n=> 총 예약 "<< scnt << "건" << endl;
 
 }
 
-void DB_list::search_by_moviename(){
+void DB_list::search_by_moviename(DB_list *list, int index){
+    string movie_name;
+    int scnt = 0;
 
+    cout << "검색할 영화 이름은?: ";
+    cin >> movie_name;
+
+    char char_movie_name[name.length() + 1];
+    name.copy(char_movie_name, name.length() + 1);
+
+    for(int i=0; i<index; i++) {
+        if(list[i].price == -1) continue;
+
+        char data_movie_name[list[i].name.length() + 1];
+        list[i].name.copy(data_movie_name, list[i].name.length() + 1);
+
+        if(strstr(data_movie_name, char_movie_name)) {
+            readInfo(list, index);
+            scnt++;
+        }
+    }
+
+    if(scnt==0) cout << "\n=> 검색된 데이터 없음!" << endl;
+    else cout << "\n=> 총 예약 "<< scnt << "건" << endl;
 }
 
 void DB_list::leftSeats(){
@@ -160,10 +207,10 @@ int main(){
                 saveData();
                 break;
             case 6:
-                list->search_by_name();
+                list->search_by_name(list, index);
                 break;
             case 7:
-                list->search_by_moviename();
+                list->search_by_moviename(list, index);
                 break;
             case 8:
                 list->leftSeats();
