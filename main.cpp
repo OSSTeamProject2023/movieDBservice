@@ -43,7 +43,7 @@ void DB_list::addInfo(DB_list* list, int index){
 void DB_list::readInfo(DB_list *list, int index){
 
     for(int i = 0; i < index; i++) {
-        if(list[index].price == -1) continue;
+        if(list[i].price == -1) continue;
         else{
         cout << "\n예매번호: " << list[i].id << "번" << endl;
         cout << "********************************************************" << endl;
