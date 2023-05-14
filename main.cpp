@@ -170,7 +170,13 @@ void DB_list::leftSeats(DB_list *list, int index){
     int room1 = 0, room2 = 0, room3 = 0, room4 = 0, room5 = 0, room6 = 0, room7 = 0;
 
     for(int i = 0; i < index; i ++){
-        if(list[i].room == 1) room1++;
+        if(list[i].room == 1) room1 ++;
+        else if(list[i].room == 2) room2 ++;
+        else if(list[i].room == 3) room3 ++;
+        else if(list[i].room == 4) room4 ++;
+        else if(list[i].room == 5) room5 ++;
+        else if(list[i].room == 6) room6 ++;
+        else if(list[i].room == 7) room7 ++;
     }
 
     cout << "1관: " << room1 << "/100" << endl;
@@ -180,8 +186,6 @@ void DB_list::leftSeats(DB_list *list, int index){
     cout << "5관: " << room5 << "/100" << endl;
     cout << "6관: " << room6 << "/100" << endl;
     cout << "7관: " << room7 << "/100" << endl;
-
-
 }
 
 void saveData(){
@@ -195,17 +199,18 @@ void loadData(){
 int show_menu(){
     int num;
     cout << "\n*********** MENU ****************" << endl;
-    cout << "1 : Add new data" << endl;
-    cout << "2 : Delete data" << endl;
-    cout << "3 : Read data" << endl;
-    cout << "4 : Update data" << endl;
-    cout << "5 : Save data" << endl;
-    cout << "6 : Search by name" << endl;
-    cout << "7 : Search by movie name" << endl;
-    cout << "8 : Show left seats by movie room" << endl;
-    cout << "0 : Quit" << endl;
+    cout << "1 : 정보 입력" << endl;
+    cout << "2 : 정보 삭제" << endl;
+    cout << "3 : 정보 불러오기" << endl;
+    cout << "4 : 정보 수정" << endl;
+    cout << "5 : 저장하기" << endl;
+    cout << "6 : 예약자 명으로 검색" << endl;
+    cout << "7 : 영화명으로 검색" << endl;
+    cout << "8 : 상영관별 잔여 좌석 확인" << endl;
+    cout << "0 : 서비스 종료" << endl;
     cout << "Choose menu : ";
     cin >> num;
+    cout << endl;
 
     return num;
 }
