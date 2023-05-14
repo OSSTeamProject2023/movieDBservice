@@ -26,19 +26,19 @@ public:
 
 
 void DB_list::addInfo(DB_list* list, int index){
-    cout << "¿¹¾àÀÚ ÀÌ¸§: ";
+    cout << "ì˜ˆì•½ì ì´ë¦„: ";
     cin >> list[index].name;
-    cout << "¿µÈ­ ÀÌ¸§: ";
+    cout << "ì˜í™” ì´ë¦„: ";
     cin >> list[index].movie_name;
-    cout << "Æ¼ÄÏ ÁÂ¼®: ";
+    cout << "í‹°ì¼“ ì¢Œì„: ";
     cin >> list[index].seat;
-    cout << "¿µÈ­ °¡°İ: ";
+    cout << "ì˜í™” ê°€ê²©: ";
     cin >> list[index].price;
-    cout << "»ó¿µ ³¯Â¥: ";
+    cout << "ìƒì˜ ë‚ ì§œ: ";
     cin >> list[index].date;
-    cout << "¿µÈ­°ü: ";
+    cout << "ì˜í™”ê´€: ";
     cin >> list[index].room;
-    cout << "ÀúÀåµÊ!";
+    cout << "ì €ì¥ë¨!";
     list[index].id = index + 1;
 }
  
@@ -47,12 +47,12 @@ void DB_list::readInfo(DB_list *list, int index){
     for(int i = 0; i < index; i++) {
         if(list[i].price == -1) continue;
         else{
-        cout << "\n¿¹¸Å¹øÈ£: " << list[i].id << "¹ø" << endl;
+        cout << "\nì˜ˆë§¤ë²ˆí˜¸: " << list[i].id << "ë²ˆ" << endl;
         cout << "********************************************************" << endl;
         cout << "*                                                          *" << endl;
-        cout << "*          ¿µÈ­ Á¦¸ñ: " << list[i].movie_name << "         \t*" << endl;
-        cout << "*      »ó¿µÀÏ½Ã: " << list[i].seat << "           ¿¹¸ÅÀÚ: " << list[i].name << "      *" << endl;  
-        cout << "*      ÁÂ¼®: " << list[i].room << "°ü "<< list[i].seat << "           °¡°İ: " << list[i].price << "  \t*" << endl;
+        cout << "*          ì˜í™” ì œëª©: " << list[i].movie_name << "         \t*" << endl;
+        cout << "*      ìƒì˜ì¼ì‹œ: " << list[i].seat << "           ì˜ˆë§¤ì: " << list[i].name << "      *" << endl;  
+        cout << "*      ì¢Œì„: " << list[i].room << "ê´€ "<< list[i].seat << "           ê°€ê²©: " << list[i].price << "  \t*" << endl;
         cout << "*                                                     *" << endl;
         cout << "*******************************************************" << endl;
         }
@@ -64,21 +64,21 @@ void DB_list::updateInfo(DB_list *list, int index){
 
     readInfo(list, index);
 
-    cout << "¼öÁ¤ÇÒ ¿¹¾à¹øÈ£´Â?: ";
+    cout << "ìˆ˜ì •í•  ì˜ˆì•½ë²ˆí˜¸ëŠ”?: ";
     cin >> number;
-    cout << "¿¹¾àÀÚ ÀÌ¸§: ";
+    cout << "ì˜ˆì•½ì ì´ë¦„: ";
     cin >> list[number-1].name;
-    cout << "¿µÈ­ ÀÌ¸§: ";
+    cout << "ì˜í™” ì´ë¦„: ";
     cin >> list[number-1].movie_name;
-    cout << "Æ¼ÄÏ ÁÂ¼®: ";
+    cout << "í‹°ì¼“ ì¢Œì„: ";
     cin >> list[number-1].seat;
-    cout << "¿µÈ­ °¡°İ: ";
+    cout << "ì˜í™” ê°€ê²©: ";
     cin >> list[number-1].price;
-    cout << "»ó¿µ ³¯Â¥: ";
+    cout << "ìƒì˜ ë‚ ì§œ: ";
     cin >> list[number-1].date;
-    cout << "¿µÈ­°ü: ";
+    cout << "ì˜í™”ê´€: ";
     cin >> list[number-1].room;
-    cout << "¼öÁ¤µÊ!";
+    cout << "ìˆ˜ì •ë¨!";
 }
 
 void DB_list::deleteInfo(DB_list *list, int index){
@@ -86,16 +86,16 @@ void DB_list::deleteInfo(DB_list *list, int index){
 
     readInfo(list, index);
 
-    cout << "¹øÈ£´Â? (Ãë¼Ò: 0) " << endl;
+    cout << "ë²ˆí˜¸ëŠ”? (ì·¨ì†Œ: 0) " << endl;
     cin >> number;
     if(number == 0) return;
 
-    cout << "Á¤¸»·Î »èÁ¦ÇÏ½Ã°Ú½À´Ï±î? (»èÁ¦: 1) " << endl;
+    cout << "ì •ë§ë¡œ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (ì‚­ì œ: 1) " << endl;
     cin >> confirm;
 
     if(confirm == 1){
         list[number-1].price = -1;
-        cout << "»èÁ¦µÊ!!" << endl;
+        cout << "ì‚­ì œë¨!!" << endl;
     }
 }
 
@@ -103,7 +103,7 @@ void DB_list::search_by_name(DB_list *list, int index){
     string name;
     int scnt = 0;
 
-    cout << "°Ë»öÇÒ ¿¹¾àÀÚ ÀÌ¸§Àº?: ";
+    cout << "ê²€ìƒ‰í•  ì˜ˆì•½ì ì´ë¦„ì€?: ";
     cin >> name;
 
     char char_name[name.length() + 1];
@@ -116,20 +116,20 @@ void DB_list::search_by_name(DB_list *list, int index){
         list[i].name.copy(data_name, list[i].name.length() + 1);
      
         if(strstr(data_name, char_name)) {
-            cout << "\n¿¹¸Å¹øÈ£: " << list[i].id << "¹ø" << endl;
+            cout << "\nì˜ˆë§¤ë²ˆí˜¸: " << list[i].id << "ë²ˆ" << endl;
             cout << "********************************************************" << endl;
             cout << "*                                                          *" << endl;
-            cout << "*          ¿µÈ­ Á¦¸ñ: " << list[i].movie_name << "         \t*" << endl;
-            cout << "*      »ó¿µÀÏ½Ã: " << list[i].seat << "           ¿¹¸ÅÀÚ: " << list[i].name << "      *" << endl;  
-            cout << "*      ÁÂ¼®: " << list[i].room << "°ü "<< list[i].seat << "           °¡°İ: " << list[i].price << "  \t*" << endl;
+            cout << "*          ì˜í™” ì œëª©: " << list[i].movie_name << "         \t*" << endl;
+            cout << "*      ìƒì˜ì¼ì‹œ: " << list[i].seat << "           ì˜ˆë§¤ì: " << list[i].name << "      *" << endl;  
+            cout << "*      ì¢Œì„: " << list[i].room << "ê´€ "<< list[i].seat << "           ê°€ê²©: " << list[i].price << "  \t*" << endl;
             cout << "*                                                     *" << endl;
             cout << "*******************************************************" << endl;
             scnt++;
         }
     }
 
-    if(scnt==0) cout << "\n=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!" << endl;
-    else cout << "\n=> ÃÑ ¿¹¾à "<< scnt << "°Ç" << endl;
+    if(scnt==0) cout << "\n=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!" << endl;
+    else cout << "\n=> ì´ ì˜ˆì•½ "<< scnt << "ê±´" << endl;
 
 }
 
@@ -137,7 +137,7 @@ void DB_list::search_by_moviename(DB_list *list, int index){
     string movie_name;
     int scnt = 0;
 
-    cout << "°Ë»öÇÒ ¿µÈ­ ÀÌ¸§Àº?: ";
+    cout << "ê²€ìƒ‰í•  ì˜í™” ì´ë¦„ì€?: ";
     cin >> movie_name;
 
     char char_movie_name[name.length() + 1];
@@ -150,20 +150,20 @@ void DB_list::search_by_moviename(DB_list *list, int index){
         list[i].name.copy(data_movie_name, list[i].name.length() + 1);
 
         if(strstr(data_movie_name, char_movie_name)) {
-            cout << "\n¿¹¸Å¹øÈ£: " << list[i].id << "¹ø" << endl;
+            cout << "\nì˜ˆë§¤ë²ˆí˜¸: " << list[i].id << "ë²ˆ" << endl;
             cout << "********************************************************" << endl;
             cout << "*                                                          *" << endl;
-            cout << "*          ¿µÈ­ Á¦¸ñ: " << list[i].movie_name << "         \t*" << endl;
-            cout << "*      »ó¿µÀÏ½Ã: " << list[i].seat << "           ¿¹¸ÅÀÚ: " << list[i].name << "      *" << endl;  
-            cout << "*      ÁÂ¼®: " << list[i].room << "°ü "<< list[i].seat << "           °¡°İ: " << list[i].price << "  \t*" << endl;
+            cout << "*          ì˜í™” ì œëª©: " << list[i].movie_name << "         \t*" << endl;
+            cout << "*      ìƒì˜ì¼ì‹œ: " << list[i].seat << "           ì˜ˆë§¤ì: " << list[i].name << "      *" << endl;  
+            cout << "*      ì¢Œì„: " << list[i].room << "ê´€ "<< list[i].seat << "           ê°€ê²©: " << list[i].price << "  \t*" << endl;
             cout << "*                                                     *" << endl;
             cout << "*******************************************************" << endl;
             scnt++;
         }
     }
 
-    if(scnt==0) cout << "\n=> °Ë»öµÈ µ¥ÀÌÅÍ ¾øÀ½!" << endl;
-    else cout << "\n=> ÃÑ ¿¹¾à "<< scnt << "°Ç" << endl;
+    if(scnt==0) cout << "\n=> ê²€ìƒ‰ëœ ë°ì´í„° ì—†ìŒ!" << endl;
+    else cout << "\n=> ì´ ì˜ˆì•½ "<< scnt << "ê±´" << endl;
 }
 
 void DB_list::leftSeats(){
@@ -200,9 +200,9 @@ int main(){
     DB_list list[100];
 
     int index = 0;
-    int num = 1;    //ÃÊ±â°ª(0¸¸ ¾Æ´Ï¸é µÊ)
-    while(num != 0) {      //ÀÔ·Â¹ŞÀº °ªÀÌ QÀÏ¶§±îÁö ¹İº¹
-        num = show_menu();                   //¸Ş´ºÆÇÀ» ½ÇÇà½ÃÅ°°í ÀÔ·Â¹ŞÀº °ªÀ» str¿¡ ¹Ş¾Æ¿È
+    int num = 1;    //ì´ˆê¸°ê°’(0ë§Œ ì•„ë‹ˆë©´ ë¨)
+    while(num != 0) {      //ì…ë ¥ë°›ì€ ê°’ì´ Qì¼ë•Œê¹Œì§€ ë°˜ë³µ
+        num = show_menu();                   //ë©”ë‰´íŒì„ ì‹¤í–‰ì‹œí‚¤ê³  ì…ë ¥ë°›ì€ ê°’ì„ strì— ë°›ì•„ì˜´
         
         switch(num) {
             case 1:
