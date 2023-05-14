@@ -21,7 +21,7 @@ public:
     void updateInfo(DB_list *list, int index);
     void search_by_name(DB_list *list, int index);
     void search_by_moviename(DB_list *list, int index);
-    void leftSeats();
+    void leftSeats(DB_list *list, int index);
 };
 
 
@@ -166,7 +166,21 @@ void DB_list::search_by_moviename(DB_list *list, int index){
     else cout << "\n=> 醚 抗距 "<< scnt << "扒" << endl;
 }
 
-void DB_list::leftSeats(){
+void DB_list::leftSeats(DB_list *list, int index){
+    int room1 = 0, room2 = 0, room3 = 0, room4 = 0, room5 = 0, room6 = 0, room7 = 0;
+
+    for(int i = 0; i < index; i ++){
+        if(list[i].room == 1) room1++;
+    }
+
+    cout << "1包: " << room1 << "/100" << endl;
+    cout << "2包: " << room2 << "/100" << endl;
+    cout << "3包: " << room3 << "/100" << endl;
+    cout << "4包: " << room4 << "/100" << endl;
+    cout << "5包: " << room5 << "/100" << endl;
+    cout << "6包: " << room6 << "/100" << endl;
+    cout << "7包: " << room7 << "/100" << endl;
+
 
 }
 
@@ -228,7 +242,7 @@ int main(){
                 list->search_by_moviename(list, index);
                 break;
             case 8:
-                list->leftSeats();
+                list->leftSeats(list, index);
                 break;
         }  
     }
