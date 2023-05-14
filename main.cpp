@@ -92,6 +92,7 @@ void DB_list::deleteInfo(DB_list *list, int index){
 
     cout << "정말로 삭제하시겠습니까? (삭제: 1) " << endl;
     cin >> confirm;
+    
     if(confirm == 1){
         list[number-1].price = -1;
         cout << "삭제됨!!" << endl;
