@@ -61,8 +61,9 @@ void DB_list::readInfo(DB_list *list, int index){
         else{
             cout << "\n예매번호: " << list[i].id << "번" << endl;
             cout << "*********************************************************" << endl;
-            cout << "*                                                       *" << endl;
-            cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            cout << "*                                                       *" << endl; 
+            if(list[i].movie_name.length() > 18) cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            else cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t\t*" << endl;
             cout << "*\t상영일시: " << list[i].seat << "\t\t예매자: " << list[i].name << "\t\t*" << endl;  
             cout << "*\t좌석: " << list[i].room << "관 "<< list[i].seat << "\t\t가격: " << list[i].price << "\t\t*" << endl;
             cout << "*                                                       *" << endl;
@@ -130,8 +131,9 @@ void DB_list::search_by_name(DB_list *list, int index){
         if(strstr(data_name, char_name)) {
             cout << "\n예매번호: " << list[i].id << "번" << endl;
             cout << "*********************************************************" << endl;
-            cout << "*                                                       *" << endl;
-            cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            cout << "*                                                       *" << endl; 
+            if(list[i].movie_name.length() > 18) cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            else cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t\t*" << endl;
             cout << "*\t상영일시: " << list[i].seat << "\t\t예매자: " << list[i].name << "\t\t*" << endl;  
             cout << "*\t좌석: " << list[i].room << "관 "<< list[i].seat << "\t\t가격: " << list[i].price << "\t\t*" << endl;
             cout << "*                                                       *" << endl;
@@ -164,8 +166,9 @@ void DB_list::search_by_moviename(DB_list *list, int index){
         if(strstr(data_movie_name, char_movie_name)) {
             cout << "\n예매번호: " << list[i].id << "번" << endl;
             cout << "*********************************************************" << endl;
-            cout << "*                                                       *" << endl;
-            cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            cout << "*                                                       *" << endl; 
+            if(list[i].movie_name.length() > 18) cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t*" << endl;
+            else cout << "*\t 영화 제목: " << list[i].movie_name << "\t\t\t\t*" << endl;
             cout << "*\t상영일시: " << list[i].seat << "\t\t예매자: " << list[i].name << "\t\t*" << endl;  
             cout << "*\t좌석: " << list[i].room << "관 "<< list[i].seat << "\t\t가격: " << list[i].price << "\t\t*" << endl;
             cout << "*                                                       *" << endl;
