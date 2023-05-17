@@ -8,8 +8,8 @@ int main(){
 
     int index = list -> loadData(list);
     int num = 1;    //초기값(0만 아니면 됨)
-    while(num != 0) {      //입력받은 값이 Q일때까지 반복
-        num = show_menu();                   //메뉴판을 실행시키고 입력받은 값을 str에 받아옴
+    while(num != 0) {      //입력받은 값이 0일때까지 반복
+        num = show_menu();                   
         
         switch(num) {
             case 1:
