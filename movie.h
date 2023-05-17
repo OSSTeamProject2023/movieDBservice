@@ -11,7 +11,7 @@ class DB_list {
         string date;
         int room;
         int id;
-        
+
     public:
         void addInfo(DB_list *list, int index);
         void deleteInfo(DB_list *list, int index);
@@ -23,3 +23,5 @@ class DB_list {
         void saveData(DB_list *list, int index);
         int loadData(DB_list *list);
 };
+
+int show_menu();
