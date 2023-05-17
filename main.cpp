@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    DB_list list[100];
+    DB_list list[700];
 
     int index = list -> loadData(list);
     int num = 1;    //초기값(0만 아니면 됨)
