@@ -7,8 +7,8 @@ int main(){
     DB_list list[700];
 
     int index = list -> loadData(list);
-    int num = 1;    //ÃÊ±â°ª(0¸¸ ¾Æ´Ï¸é µÊ)
-    while(num != 0) {      //ÀÔ·Â¹ŞÀº °ªÀÌ 0ÀÏ¶§±îÁö ¹İº¹
+    int num = 1;    //ì´ˆê¸°ê°’(0ë§Œ ì•„ë‹ˆë©´ ë¨)
+    while(num != 0) {      //ì…ë ¥ë°›ì€ ê°’ì´ 0ì¼ë•Œê¹Œì§€ ë°˜ë³µ
         num = show_menu();                   
         
         switch(num) {
@@ -39,5 +39,5 @@ int main(){
                 break;
         }  
     }
-    cout << "¼­ºñ½º°¡ Á¾·áµÇ¾ú½À´Ï´Ù!" << endl;
+    cout << "ì„œë¹„ìŠ¤ê°€ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤!" << endl;
 }
