@@ -1,5 +1,5 @@
 #include <iostream>
-#include "movie.h"
+#include "movie.hpp"
 
 using namespace std;
 
